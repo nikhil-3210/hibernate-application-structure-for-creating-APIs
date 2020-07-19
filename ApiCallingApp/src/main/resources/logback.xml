@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+	<property resource="LogBack.properties"/> 
+	
+	<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		
+		<!-- <file>/home/cerelabs/WorkArea/Projects/CongnitiveAutomation/logs/CognitiveDataService/logFile.log</file>-->
+    	<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        	<!-- rollover daily -->
+        	<fileNamePattern>${USER_HOME}/Logs/%d{yyyy-MM-dd}/ApiCallingApp.%i.log</fileNamePattern>
+        	<!-- each file should be at most 10MB, keep 2 days worth of history, but at most 5GB -->
+        	
+        	<maxFileSize>10MB</maxFileSize>    
+       		<maxHistory>1</maxHistory>
+       		<totalSizeCap>5GB</totalSizeCap>
+    
+        	
+    	</rollingPolicy>
+    	
+    	
+	    <encoder>
+	      <pattern>%n%d{yyyy-MM-dd HH:mm:ss.SSS} [%M] [%thread]%n%-5level%n%logger{500}%n%msg%n</pattern>
+	    </encoder>
+	    
+	    <!-- For html logger file  -->
+	    <!-- <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <charset>UTF-8</charset>
+	        <layout class="ch.qos.logback.classic.html.HTMLLayout">
+	            <pattern>%d{HH:mm:ss.SSS}%thread%level%logger%line%msg</pattern>
+	        </layout> 
+        </encoder> -->
+	    
+	</appender>
+
+	<logger name="com.nikhil.ApiCallingApp.services" level="info"/>
+	<logger name="com.nikhil.ApiCallingApp.helper" level="info"/>
+	<logger name="com.nikhil.ApiCallingApp.utils" level="info"/>
+	<logger name="org.hibernate" level="info" />
+ 
+  	<root level="info">
+    	<appender-ref ref="rollingFile" />
+  	</root>
+
+</configuration>
