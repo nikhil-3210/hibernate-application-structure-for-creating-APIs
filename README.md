@@ -5,7 +5,7 @@ hibernate application structure for creating API's, This hibernate application s
 1. contains the pojo class
   - it also contains the code for database connectivity/configuration. so that is becomes easy to create/use session object.
 2. contains the business Entity class
-3. conatins the actual logic for database Transaction.
+3. conatins the actual logic for database Interaction.
 
 # URL Request example
 ex- http://localhost:8080/ApiCallingApp/webapi/ApiCallingApp/getStudentsList
